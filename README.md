@@ -86,4 +86,4 @@ JSONObject result = Pasta.sendRequest(session, "getUser", paras); //获取ID为1
 2. 如果你开启了请求超时检查器，并且上述请求超时时，会抛出TimeoutException，这是一个未受检异常，当然你也可以捕获它  
 
 ## 获取Pasta  
->[点击获取](https://mazhuang.org "Pasta")
+>[点击获取](https://github.com/darhao/pasta/releases/tag/1.0.0 "Pasta")
