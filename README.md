@@ -30,7 +30,8 @@
 >>报文类型符合双方协商后的规定  
 
 ## API介绍
-### Maven依赖
+### Maven依赖  
+本框架依赖以下类库：  
 ```
 <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
 <dependency>
