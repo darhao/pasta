@@ -8,6 +8,7 @@ import javax.websocket.Session;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * 报文接受者
@@ -87,8 +88,12 @@ class PastaReceiver {
 
 	private static PastaPackage parseToPackage(String message) {
 		try {
-			return JSON.parseObject(message, PastaPackage.class);
-		} catch (Exception ignore) {
+			PastaPackage pastaPackage = JSON.parseObject(message, PastaPackage.class);
+			if(pastaPackage.getBody() != null && pastaPackage.getBody() instanceof JSONObject == false) {
+				throw new JSONException("无法解析JSON：" + message);
+			}
+			return pastaPackage;
+		} catch (JSONException ignore) {
 			throw new JSONException("无法解析JSON：" + message);
 		}
 	}

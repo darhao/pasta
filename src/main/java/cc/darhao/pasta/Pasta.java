@@ -106,7 +106,7 @@ public class Pasta {
 	 * @param session 用于发送请求的会话实体
 	 * @param type 请求的类型
 	 * @param body 请求参数，如果没有参数，可以为null
-	 * @return 响应体的body值
+	 * @return 响应体的body值 或者 如果body为空则是null
 	 * @throws IOException 如果发送时出现问题抛出
 	 * @throws TimeoutException 如果请求超时时抛出
 	 */

@@ -5,7 +5,7 @@
 
 	<groupId>cc.darhao</groupId>
 	<artifactId>pasta</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>pasta</name>
@@ -46,6 +46,23 @@
 					<target>1.8</target>
 					<compilerArgument>-parameters</compilerArgument>
 				</configuration>
+			</plugin>
+			
+			<!-- 打包源码 -->
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>
