@@ -27,7 +27,7 @@ public class Pasta {
 	
 	static final Map<String, Class> routerMap = new HashMap<>();
 	
-	static PastaLogCatcher catcher = null;
+	static PastaLogCatcher catcher = new EmptyPastaLogCatcher();
 	
 	static RequestTimeoutChecker checker = null;
 	

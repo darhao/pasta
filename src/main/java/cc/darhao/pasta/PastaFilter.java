@@ -81,15 +81,14 @@ public abstract class PastaFilter {
 					Object handler = handlerClazz.newInstance();
 					return method.invoke(handler, values);
 				}
-				throw new NullPointerException("没有在"+handlerClazz.getName()+"中找到方法名为"+requestMethodName+"的方法");
 			}
+			throw new NullPointerException("没有在"+handlerClazz.getName()+"中找到方法名为"+requestMethodName+"的方法");
 		} catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
 			if(e instanceof InvocationTargetException) {
 				throw (RuntimeException) ((InvocationTargetException) e).getTargetException();
 			}
 			throw new RuntimeException(e.getMessage());
 		}
-		return null;
 	}
 	
 }
