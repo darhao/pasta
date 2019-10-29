@@ -28,7 +28,9 @@ class PastaSender {
 		//等待响应通知或超时通知
 		synchronized (pair) {
 			try {
-				pair.wait();
+				while(pair.getResponsePackage() == null) {
+					pair.wait();
+				}
 			} catch (InterruptedException ignore) {
 			}
 		}
