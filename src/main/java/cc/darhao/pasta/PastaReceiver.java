@@ -58,12 +58,12 @@ class PastaReceiver {
 				int responseId = responsePackage.getId();
 				Session sessionInSet = pair.getSession();
 				if (idInSet == responseId && sessionInSet == session) {
-					//触发日志捕获器
-					Pasta.catcher.onRequestFinish(pair);
 					//移除元素
 					it.remove();
 					//设置响应
 					pair.setResponsePackage(responsePackage);
+					//触发日志捕获器
+					Pasta.catcher.onRequestFinish(pair);
 					synchronized (pair) {
 						//唤醒线程
 						pair.notify();

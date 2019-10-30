@@ -47,13 +47,13 @@ class RequestTimeoutChecker extends Thread {
 				long requestTime = pair.getRequestTime().getTime();
 				long nowTime = new Date().getTime();
 				if (nowTime - requestTime > timeoutTime) {
-					// 触发日志捕获器
-					Pasta.catcher.onRequestTimeout(pair);
 					// 移除元素
 					it.remove();
 					// 设置超时特殊响应
 					PastaPackage responsePackage = new PastaPackage(pair.getRequestPackage(), "TIMEOUT");
 					pair.setResponsePackage(responsePackage);
+					// 触发日志捕获器
+					Pasta.catcher.onRequestTimeout(pair);
 					synchronized (pair) {
 						// 唤醒线程
 						pair.notify();
